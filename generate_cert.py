@@ -4,6 +4,7 @@
 """
 
 from PIL import Image, ImageFont, ImageDraw
+import csv;
 
 FONT_FILE = ImageFont.truetype(r'GreatVibes-Regular.ttf', 250)
 FONT_COLOR = "#000000"
@@ -20,6 +21,11 @@ def make_cert(name):
     print('printing certificate of: '+name)
 
 
-names = ['Natasha Romanova', 'John Wick', 'Bruce Wayne', 'Diana Prince', 'Tony Stark']
-for x in names:
-    make_cert(x)
+# names = ['Natasha Romanova', 'John Wick', 'Bruce Wayne', 'Diana Prince', 'Tony Stark']
+# for x in names:
+#     make_cert(x)
+
+with open("./example.csv", 'r') as file:
+  csvreader = csv.reader(file)
+  for row in csvreader:
+    make_cert(row[0])
